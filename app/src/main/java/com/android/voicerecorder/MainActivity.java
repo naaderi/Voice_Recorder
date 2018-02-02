@@ -37,33 +37,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViews();
+        getData();
 
+        mRecordButton.setOnClickListener(this);
+        mStopRecordButton.setOnClickListener(this);
+        setButtonStatus(mStopRecordButton, false);
+
+      //  CollectRecordedVoice mVoice = new CollectRecordedVoice();
+        //mVoice.CollectAllRecordedVoice(mContext);
+    }
+
+    private void getData() {
         if (getRecordedVoiceList() != null) {
             initAdapter(mVoiceRecordedModels);
             initRecyclerView(mVoiceAdapter);
         }
-
-        mRecordButton.setOnClickListener(this);
-        mStopRecordButton.setOnClickListener(this);
-
-        setButtonStatus(mStopRecordButton, false);
-        //     mStopRecordButton.setEnabled(false);
-        //  setButtonDisable(mStopRecordButton);
-        //  setButtonDisable(mPlayButton);
-        //  mStopPlayButton.setEnabled(false);
-        //  setButtonDisable(mStopPlayButton);
-
-        CollectRecordedVoice mVoice = new CollectRecordedVoice();
-        mVoice.CollectAllRecordedVoice(mContext);
     }
 
     private List<VoiceRecordedModel> getRecordedVoiceList() {
         CollectRecordedVoice voice = new CollectRecordedVoice();
         mVoiceRecordedModels = voice.CollectAllRecordedVoice(mContext);
-        //   Toast.makeText(mContext, "voice record: " + mVoiceRecordedModels + "", Toast.LENGTH_SHORT).show();
-//        if (!mVoiceRecordedModels.isEmpty()) {
-//            initAdapter(mVoiceRecordedModels);
-//        }
         return mVoiceRecordedModels;
     }
 
@@ -103,7 +96,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 startRecording();
                 break;
             case R.id.stopRecord_button: {
-                initAdapter(mVoiceRecordedModels);
+                getData();
                 stopRecording();
                 break;
             }
@@ -145,10 +138,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mediaRecorder.stop();
         setButtonStatus(mRecordButton, true);
         setButtonStatus(mStopRecordButton, false);
-        // setButtonDisable(mStopRecordButton);
-        // setButtonEnable(mPlayButton);
-        // setButtonEnable(mRecordButton);
-        //   setButtonDisable(mStopPlayButton);
     }
 
     @Override

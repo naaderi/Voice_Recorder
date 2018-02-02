@@ -1,45 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/light_background">
+    style="@style/scrollview">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+    <LinearLayout style="@style/linearlayout_vertical">
 
-        <RelativeLayout
-            android:id="@+id/recordLayout"
-            android:layout_width="match_parent"
-            android:layout_height="100dp">
+        <LinearLayout style="@style/linearlayout_bottons">
 
             <Button
                 android:id="@+id/record_button"
+                style="@style/buttons"
                 android:layout_width="@dimen/record_button_size"
                 android:layout_height="@dimen/record_button_size"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="99dp"
-                android:layout_marginStart="99dp"
                 android:background="@drawable/record_button_status"
-                android:text="@string/record_button" />
+                android:text="@string/record_button"
+                android:textAppearance="@style/text_button_style" />
 
             <Button
                 android:id="@+id/stopRecord_button"
+                style="@style/buttons"
                 android:layout_width="@dimen/pause_button_width_height"
                 android:layout_height="@dimen/pause_button_width_height"
-                android:layout_alignBaseline="@+id/record_button"
-                android:layout_alignBottom="@+id/record_button"
-                android:layout_marginLeft="43dp"
-                android:layout_marginStart="43dp"
-                android:layout_toEndOf="@+id/record_button"
-                android:layout_toRightOf="@+id/record_button"
-                android:background="@drawable/stop_record_statuse" />
-        </RelativeLayout>
+                android:background="@drawable/stop_record_statuse"
+                android:text="@string/stop_record"
+                android:textAppearance="@style/text_button_style" />
+        </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -48,6 +34,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/gray_record_button" />
-        </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>
