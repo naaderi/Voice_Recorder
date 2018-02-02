@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:padding="8dp"
-    android:background="#EF9A9A">
+    android:background="@color/list_background">
     <TextView
         android:id="@+id/voiceName_textView"
         android:layout_width="0dp"
@@ -13,7 +13,6 @@
         android:layout_weight="1"
         android:layout_marginLeft="16dp"
         tools:text="voice name"
-        android:textColor="#faf8f9"
         android:gravity="left|center_vertical"/>
 
 <ImageButton
