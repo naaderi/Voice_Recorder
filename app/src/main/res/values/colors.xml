@@ -12,8 +12,9 @@
     <color name="gray_pause_button">#4e4b4c</color>
     <color name="purple">#AD1457</color>
     <color name="light_gray">#e4dde0</color>
-    <color name="light_background">#fff4f5</color>
-    <color name="list_background">#f2e9e9</color>
+    <color name="light_background">#f1e9ea</color>
+    <color name="list_background">#f5e6e6</color>
+    <color name="text_color">#B71C1C</color>
 
 
 </resources>

@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:padding="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
     android:background="@color/list_background">
     <TextView
         android:id="@+id/voiceName_textView"
@@ -13,14 +15,8 @@
         android:layout_weight="1"
         android:layout_marginLeft="16dp"
         tools:text="voice name"
+        android:textColor="@color/text_color"
+        android:textSize="16sp"
         android:gravity="left|center_vertical"/>
 
-<ImageButton
-    android:padding="8dp"
-    android:id="@+id/play_imageButton"
-    android:layout_width="32dp"
-    android:layout_height="32dp"
-    android:layout_marginRight="16dp"
-    android:gravity="right|center_vertical"
-    android:background="@drawable/record_button_enable"/>
 </LinearLayout>
