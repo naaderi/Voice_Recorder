@@ -5,11 +5,11 @@
     <color name="colorAccent">#FF4081</color>
     <color name="background_bottom">#c5eae5</color>
     <color name="background_top">#59a99e</color>
-
     <color name="red_record_button">#E91E63</color>
     <color name="gray_record_button">#c2bcbf</color>
     <color name="gray_not_enable_button">#aba5a8</color>
     <color name="gray_pause_button">#4e4b4c</color>
     <color name="purple">#AD1457</color>
+    <color name="light_gray">#e4dde0</color>
 
 </resources>
