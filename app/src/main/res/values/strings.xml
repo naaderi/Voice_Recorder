@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Voice Recorder</string>
+    <string name="stop_play_button">Stop Play</string>
+    <string name="play_button">Play</string>
+    <string name="record_button">Rec</string>
+    <string name="stop_record">Stop</string>
+
+    <string name="menu_tile">List</string>
+</resources>

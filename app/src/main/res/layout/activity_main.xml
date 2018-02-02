@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/recordLayout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <Button
+                android:id="@+id/record_button"
+                android:layout_width="@dimen/record_button_size"
+                android:layout_height="@dimen/record_button_size"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/record_button_status"
+                android:text="@string/record_button" />
+
+            <Button
+                android:id="@+id/stopRecord_button"
+                android:layout_width="@dimen/pause_button_width_height"
+                android:layout_height="@dimen/pause_button_width_height"
+                android:layout_alignBaseline="@+id/record_button"
+                android:layout_alignBottom="@+id/record_button"
+                android:layout_marginLeft="59dp"
+                android:layout_marginStart="59dp"
+                android:layout_toEndOf="@+id/record_button"
+                android:layout_toRightOf="@+id/record_button"
+                android:background="@drawable/stop_record_statuse" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/voiceList_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray_record_button" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>
