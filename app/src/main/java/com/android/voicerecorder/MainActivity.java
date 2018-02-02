@@ -8,6 +8,7 @@ import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -21,11 +22,9 @@ import voicelist.VoiceListAdapter;
 import voicelist.VoiceRecordedModel;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
- //   private static TextView mPlayingVoiceTextview;
+    //   private static TextView mPlayingVoiceTextview;
     private Button mRecordButton;
     private Button mStopRecordButton;
-    // private Button mPlayButton;
-  //  private Button mStopPlayButton;
 
     private final Context mContext = MainActivity.this;
     private MediaRecorder mediaRecorder;
@@ -48,10 +47,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mRecordButton.setOnClickListener(this);
         mStopRecordButton.setOnClickListener(this);
 
-        mStopRecordButton.setEnabled(false);
+        setButtonStatus(mStopRecordButton,false);
+   //     mStopRecordButton.setEnabled(false);
         //  setButtonDisable(mStopRecordButton);
         //  setButtonDisable(mPlayButton);
-      //  mStopPlayButton.setEnabled(false);
+        //  mStopPlayButton.setEnabled(false);
         //  setButtonDisable(mStopPlayButton);
 
         CollectRecordedVoice mVoice = new CollectRecordedVoice();
@@ -61,7 +61,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private List<VoiceRecordedModel> getRecordedVoiceList() {
         CollectRecordedVoice voice = new CollectRecordedVoice();
         mVoiceRecordedModels = voice.CollectAllRecordedVoice(mContext);
-        Toast.makeText(mContext, "voice record: " + mVoiceRecordedModels + "", Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(mContext, "voice record: " + mVoiceRecordedModels + "", Toast.LENGTH_SHORT).show();
 //        if (!mVoiceRecordedModels.isEmpty()) {
 //            initAdapter(mVoiceRecordedModels);
 //        }
@@ -87,6 +87,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mVoiceListRecyclerView.setLayoutManager(mLayoutManager);
     }
 
+    private void setButtonStatus(Button mButton,boolean status){
+        mButton.setEnabled(status);
+    }
+
     private void setButtonEnable(Button mEnableBtn) {
         mEnableBtn.setEnabled(true);
     }
@@ -98,28 +102,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void findViews() {
         mRecordButton = findViewById(R.id.record_button);
         mStopRecordButton = findViewById(R.id.stopRecord_button);
-      //  mStopPlayButton = findViewById(R.id.stopPlay_button);
         mVoiceListRecyclerView = findViewById(R.id.voiceList_recyclerview);
-      //  mPlayingVoiceTextview = findViewById(R.id.playingVoice_textview);
     }
 
     @Override
     public void onClick(View clickedButton) {
         switch (clickedButton.getId()) {
             case R.id.record_button:
-             //   new Thread(new Runnable() {
-              //      @Override
-              //      public void run() {
-                        startRecording();
-             //      }
-             //   }).start();
+                startRecording();
                 break;
-
             case R.id.stopRecord_button: {
                 initAdapter(mVoiceRecordedModels);
                 stopRecording();
                 break;
-
             }
         }
     }
@@ -133,13 +128,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 mediaRecorder.start();
             } catch (IllegalStateException e) {
                 e.printStackTrace();
+                Log.e(LOG_TAG,LOG_MESSAGE_RECORD_READY_ERROR + e);
             } catch (IOException e) {
                 e.printStackTrace();
+                Log.e(LOG_TAG,LOG_MESSAGE_RECORD_READY_ERROR + e);
             }
-            mRecordButton.setEnabled(false);
-           // setButtonDisable(mRecordButton);
-          //  setButtonEnable(mStopRecordButton);
-            mStopRecordButton.setEnabled(true);
+            setButtonStatus(mRecordButton,false);
+          //  mRecordButton.setEnabled(false);
+            setButtonStatus(mStopRecordButton,true);
+        //    mStopRecordButton.setEnabled(true);
         } else {
             requestPermission((Activity) mContext);
         }
@@ -155,10 +152,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private void stopRecording() {
         mediaRecorder.stop();
-        setButtonDisable(mStopRecordButton);
+        setButtonStatus(mRecordButton,true);
+        setButtonStatus(mStopRecordButton,false);
+       // setButtonDisable(mStopRecordButton);
         // setButtonEnable(mPlayButton);
-        setButtonEnable(mRecordButton);
-     //   setButtonDisable(mStopPlayButton);
+       // setButtonEnable(mRecordButton);
+        //   setButtonDisable(mStopPlayButton);
     }
 
     @Override
@@ -203,9 +202,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 ////        isPlayingVoice(voiceName);
 //    }
 
- //   public static void isPlayingVoice(String voiceName) {
-      //  mPlayingVoiceTextview.setText(voiceName);
- //  }
+    //   public static void isPlayingVoice(String voiceName) {
+    //  mPlayingVoiceTextview.setText(voiceName);
+    //  }
 
 
 //    public boolean checkPermission() {
@@ -255,28 +254,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //                }
 //            }
 //        });
-
-    //    private int writeFileNameIndex() {
-//        SharedPreferences sharedpreferences =
-//                getSharedPreferences(PREFERENCES_FILE_NAME_INDEX, Context.MODE_PRIVATE);
-//        SharedPreferences.Editor editor = sharedpreferences.edit();
-//        int index = readFileNameIndex();
-//        editor.putInt(PREFERENCES_KEY, index);
-//        editor.commit();
-//        return index;
-//    }
-
-//    private int readFileNameIndex() {
-//        int index = PreferenceManager.getDefaultSharedPreferences(mContext)
-//                .getInt(PREFERENCES_KEY, 0);
-//        index += 1;
-//        return index;
-//    }
-
-//    private String createFileName() {
-//        fileIndex = writeFileNameIndex();
-//        return fileNamePrefix + fileIndex + fileNamePostfix;
-//    }
 
     @Override
     protected void onStop() {
