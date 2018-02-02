@@ -44,7 +44,6 @@ public class VoiceListAdapter extends RecyclerView.Adapter<VoiceListAdapter.Voic
     @Override
     public void onBindViewHolder(VoiceListHolder holder, int position) {
         holder.voiceNameTextView.setText(voiceModels.get(position).getVoiceName());
-        //  holder.voicePathTextView.setText(voiceModels.get(position).getVoicePath());
     }
 
     @Override
@@ -54,13 +53,10 @@ public class VoiceListAdapter extends RecyclerView.Adapter<VoiceListAdapter.Voic
 
     class VoiceListHolder extends RecyclerView.ViewHolder {
         TextView voiceNameTextView;
-//        TextView voicePathTextView;
 
         VoiceListHolder(View itemView) {
             super(itemView);
             voiceNameTextView = itemView.findViewById(R.id.voiceName_textView);
-
-            //  itemView.setOnClickListener(this);
         }
 
 //        @Override
