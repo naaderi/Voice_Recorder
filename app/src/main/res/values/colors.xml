@@ -7,14 +7,15 @@
 
     <color name="colorAccent">#D50000</color>
     <color name="red_record_button">#D50000</color>
-    <color name="gray_record_button">#c2bcbf</color>
+    <color name="gray_record_button">#c1bbbe</color>
     <color name="gray_not_enable_button">#aba5a8</color>
     <color name="gray_pause_button">#4e4b4c</color>
     <color name="purple">#AD1457</color>
     <color name="light_gray">#e4dde0</color>
     <color name="light_background">#f1e9ea</color>
-    <color name="list_background">#f5e6e6</color>
+    <color name="list_background">#fff6f6</color>
     <color name="text_color">#B71C1C</color>
+    <color name="button_text">#fffcfc</color>
 
 
 </resources>

@@ -7,15 +7,35 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    <style name="bottomLayouts">
+
+
+    <style name="scrollview">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">0dp</item>
-        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/light_background</item>
     </style>
 
-    <style name="topLayouts">
+    <style name="linearlayout_vertical">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">0dp</item>
-        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="linearlayout_bottons">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/linearlayout_top_height</item>
+        <item name="android:padding">@dimen/padding8</item>
+    </style>
+    <style name="buttons">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">@dimen/margin_left_buttons</item>
+    </style>
+    <style name="text_button_style">
+        <item name="android:textColor">@color/button_text</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+    </style>
+    <style name="textview_list_item">
+        <item name="android:textSize">@dimen/text_size_16</item>
+        <item name="android:textColor">@color/text_color</item>
     </style>
 </resources>
