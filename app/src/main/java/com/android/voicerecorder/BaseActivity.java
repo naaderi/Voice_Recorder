@@ -8,6 +8,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import java.io.File;
 
@@ -21,8 +22,9 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 public class BaseActivity extends AppCompatActivity {
     public static final int REQUEST_PERMISSION_CODE = 1;
     public static final String LOG_TAG = "MEDIA RECORDER";
-    public static final String LOG_MESSAGE_PLAY_ERROR = "Can not play recorded file.";
-
+    public static final String LOG_MESSAGE_RECORD_READY_ERROR = "There is problem on start recording.";
+    public static final String PERMISSION_GRANTED ="Permission Granted";
+    public static final String PERMISSION_DENIED ="Permission Denied";
     public static final String SLASH = "/";
     public static final String DIRECTORY_FOR_VOICE = "VOICE_RECORDER";
     public static String FILE_NAME_PREFIX = "Voice_";
@@ -30,7 +32,7 @@ public class BaseActivity extends AppCompatActivity {
     public static String PREFERENCES_KEY = "fileIndex";
     public static final String AUDIO_FILE_PATH = Environment.getExternalStorageDirectory()
             .getAbsolutePath() + SLASH;
-
+    public Context context=BaseActivity.this;
 
     protected static void requestPermission(Activity activity) {
         ActivityCompat.requestPermissions(activity, new
@@ -46,6 +48,9 @@ public class BaseActivity extends AppCompatActivity {
                 result1 == PackageManager.PERMISSION_GRANTED;
     }
 
+    public static void showToast(Context mContext,String toastMessage){
+        Toast.makeText(mContext, toastMessage, Toast.LENGTH_LONG).show();
+    }
     public static void makeDirectoryForVoiceRecord() {
         File voiceDirectory = new File(AUDIO_FILE_PATH, DIRECTORY_FOR_VOICE);
         if (!voiceDirectory.exists()) {

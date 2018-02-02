@@ -11,7 +11,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,8 +46,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mRecordButton.setOnClickListener(this);
         mStopRecordButton.setOnClickListener(this);
 
-        setButtonStatus(mStopRecordButton,false);
-   //     mStopRecordButton.setEnabled(false);
+        setButtonStatus(mStopRecordButton, false);
+        //     mStopRecordButton.setEnabled(false);
         //  setButtonDisable(mStopRecordButton);
         //  setButtonDisable(mPlayButton);
         //  mStopPlayButton.setEnabled(false);
@@ -61,7 +60,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private List<VoiceRecordedModel> getRecordedVoiceList() {
         CollectRecordedVoice voice = new CollectRecordedVoice();
         mVoiceRecordedModels = voice.CollectAllRecordedVoice(mContext);
-     //   Toast.makeText(mContext, "voice record: " + mVoiceRecordedModels + "", Toast.LENGTH_SHORT).show();
+        //   Toast.makeText(mContext, "voice record: " + mVoiceRecordedModels + "", Toast.LENGTH_SHORT).show();
 //        if (!mVoiceRecordedModels.isEmpty()) {
 //            initAdapter(mVoiceRecordedModels);
 //        }
@@ -87,16 +86,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mVoiceListRecyclerView.setLayoutManager(mLayoutManager);
     }
 
-    private void setButtonStatus(Button mButton,boolean status){
+    private void setButtonStatus(Button mButton, boolean status) {
         mButton.setEnabled(status);
-    }
-
-    private void setButtonEnable(Button mEnableBtn) {
-        mEnableBtn.setEnabled(true);
-    }
-
-    private void setButtonDisable(Button mDisableBtn) {
-        mDisableBtn.setEnabled(false);
     }
 
     private void findViews() {
@@ -128,15 +119,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 mediaRecorder.start();
             } catch (IllegalStateException e) {
                 e.printStackTrace();
-                Log.e(LOG_TAG,LOG_MESSAGE_RECORD_READY_ERROR + e);
+                Log.e(LOG_TAG, LOG_MESSAGE_RECORD_READY_ERROR + e);
             } catch (IOException e) {
                 e.printStackTrace();
-                Log.e(LOG_TAG,LOG_MESSAGE_RECORD_READY_ERROR + e);
+                Log.e(LOG_TAG, LOG_MESSAGE_RECORD_READY_ERROR + e);
             }
-            setButtonStatus(mRecordButton,false);
-          //  mRecordButton.setEnabled(false);
-            setButtonStatus(mStopRecordButton,true);
-        //    mStopRecordButton.setEnabled(true);
+            setButtonStatus(mRecordButton, false);
+            //  mRecordButton.setEnabled(false);
+            setButtonStatus(mStopRecordButton, true);
+            //    mStopRecordButton.setEnabled(true);
         } else {
             requestPermission((Activity) mContext);
         }
@@ -152,11 +143,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private void stopRecording() {
         mediaRecorder.stop();
-        setButtonStatus(mRecordButton,true);
-        setButtonStatus(mStopRecordButton,false);
-       // setButtonDisable(mStopRecordButton);
+        setButtonStatus(mRecordButton, true);
+        setButtonStatus(mStopRecordButton, false);
+        // setButtonDisable(mStopRecordButton);
         // setButtonEnable(mPlayButton);
-       // setButtonEnable(mRecordButton);
+        // setButtonEnable(mRecordButton);
         //   setButtonDisable(mStopPlayButton);
     }
 
@@ -171,10 +162,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     boolean RecordPermission = grantResults[1] ==
                             PackageManager.PERMISSION_GRANTED;
                     if (StoragePermission && RecordPermission) {
-                        Toast.makeText(MainActivity.this, "Permission Granted",
-                                Toast.LENGTH_LONG).show();
+                        showToast(mContext, PERMISSION_GRANTED);
                     } else {
-                        Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_LONG).show();
+                        showToast(mContext, PERMISSION_DENIED);
                     }
                 }
                 break;
