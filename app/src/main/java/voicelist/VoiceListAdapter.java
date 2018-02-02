@@ -58,13 +58,5 @@ public class VoiceListAdapter extends RecyclerView.Adapter<VoiceListAdapter.Voic
             super(itemView);
             voiceNameTextView = itemView.findViewById(R.id.voiceName_textView);
         }
-
-//        @Override
-//        public void onClick(View clickedView) {
-//
-//                    MainActivity.playClickedVoice(voiceModels.get(getAdapterPosition())
-//                            .getVoicePath());
-//
-//        }
     }
 }

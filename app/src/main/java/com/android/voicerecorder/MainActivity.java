@@ -42,9 +42,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mRecordButton.setOnClickListener(this);
         mStopRecordButton.setOnClickListener(this);
         setButtonStatus(mStopRecordButton, false);
-
-      //  CollectRecordedVoice mVoice = new CollectRecordedVoice();
-        //mVoice.CollectAllRecordedVoice(mContext);
     }
 
     private void getData() {
@@ -159,80 +156,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
         }
     }
-
-//    public void playClickedVoice(String filePath) {
-//
-//        mStopRecordButton.setEnabled(false);
-//        mRecordButton.setEnabled(false);
-//            //    mStopPlayButton.setEnabled(true);
-//
-//
-//
-//
-//        mMediaPlayer = new MediaPlayer();
-//        try {
-//            mMediaPlayer.setDataSource(filePath);
-//            mMediaPlayer.prepare();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            Log.e(LOG_TAG, LOG_MESSAGE_PLAY_ERROR);
-//        }
-//        mMediaPlayer.start();
-////        isPlayingVoice(voiceName);
-//    }
-
-    //   public static void isPlayingVoice(String voiceName) {
-    //  mPlayingVoiceTextview.setText(voiceName);
-    //  }
-
-
-//    public boolean checkPermission() {
-//        int result = ContextCompat.checkSelfPermission(getApplicationContext(),
-//                WRITE_EXTERNAL_STORAGE);
-//        int result1 = ContextCompat.checkSelfPermission(getApplicationContext(),
-//                RECORD_AUDIO);
-//        return result == PackageManager.PERMISSION_GRANTED &&
-//                result1 == PackageManager.PERMISSION_GRANTED;
-//    }
-
-//        mPlayButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) throws IllegalArgumentException,
-//                    SecurityException, IllegalStateException {
-//                boolean FALSE=false;
-//                mStopRecordButton.setEnabled(FALSE);
-//                mRecordButton.setEnabled(false);
-//                mStopPlayButton.setEnabled(true);
-//
-//                mediaPlayer = new MediaPlayer();
-//                try {
-//                    mediaPlayer.setDataSource(AUDIO_FILE_PATH);
-//                    mediaPlayer.prepare();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//
-//                mediaPlayer.start();
-//                Toast.makeText(MainActivity.this, "Recording Playing",
-//                        Toast.LENGTH_LONG).show();
-//            }
-//        });
-
-//        mStopPlayButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                mStopRecordButton.setEnabled(false);
-//                mRecordButton.setEnabled(true);
-//                mStopPlayButton.setEnabled(false);
-//                mPlayButton.setEnabled(true);
-//
-//                if (mediaPlayer != null) {
-//                    mediaPlayer.stop();
-//                    mediaPlayer.release();
-//                    MediaRecorderReady();
-//                }
-//            }
-//        });
 
     @Override
     protected void onStop() {
